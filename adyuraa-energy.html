@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Adyuraa Energy – Nagpur's trusted solar solutions provider for residential, commercial, and industrial installations. PM Surya Ghar subsidy assistance. Best ROI guaranteed.">
+  <meta name="keywords" content="solar panels Nagpur, solar installation Nagpur, residential solar, commercial solar, industrial solar, Adyuraa Energy, rooftop solar, PM Surya Ghar subsidy, solar energy Maharashtra">
+  <meta name="author" content="Adyuraa Energy">
+  <meta property="og:title" content="Adyuraa Energy | Smart Solar Solutions – Nagpur">
+  <meta property="og:description" content="Stop overpaying for electricity. Switch to Adyuraa Energy for smart, reliable solar for homes & business. Up to ₹78,000 government subsidy available.">
+  <meta property="og:type" content="website">
+  <title>Adyuraa Energy | Smart Solar Solutions – Nagpur</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ── RESET & TOKENS ── */
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --sun:#FF6B00;--sun-dk:#E55A00;
+      --navy:#1A3A5C;--navy-dk:#0D2438;
+      --gold:#FFB800;
+      --txt:#1A1A2E;--muted:#6B7280;
+      --bg:#F8FAFC;--white:#fff;
+      --grd-sol:linear-gradient(135deg,#FF6B00 0%,#FFB800 100%);
+      --grd-nav:linear-gradient(135deg,#1A3A5C 0%,#0D2438 100%);
+      --shd:0 10px 30px rgba(0,0,0,.10);
+      --shd-h:0 20px 50px rgba(0,0,0,.16);
+      --r:16px;--t:all .3s cubic-bezier(.4,0,.2,1);
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Poppins',sans-serif;color:var(--txt);line-height:1.6;overflow-x:hidden}
+    img{display:block;max-width:100%}
+    a{text-decoration:none}
+
+    /* ── NAVBAR ── */
+    .navbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(13,36,56,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,107,0,.18);transition:var(--t)}
+    .navbar.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.3)}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:14px 5%;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo-mark{width:50px;height:50px;background:var(--grd-sol);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff;box-shadow:0 4px 15px rgba(255,107,0,.4);flex-shrink:0}
+    .logo-words span:first-child{display:block;font-size:19px;font-weight:800;color:#fff;letter-spacing:.5px}
+    .logo-words span:last-child{display:block;font-size:10px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:500}
+    .nav-links{display:flex;list-style:none;gap:4px;align-items:center}
+    .nav-links a{color:rgba(255,255,255,.82);padding:8px 14px;border-radius:8px;font-size:14px;font-weight:500;transition:var(--t)}
+    .nav-links a:hover{color:var(--gold);background:rgba(255,184,0,.1)}
+    .nav-cta{background:var(--grd-sol)!important;color:#fff!important;padding:10px 22px!important;border-radius:25px!important;font-weight:600!important;box-shadow:0 4px 15px rgba(255,107,0,.4)}
+    .nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(255,107,0,.55)!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .hamburger span{width:25px;height:2px;background:#fff;border-radius:2px;transition:var(--t);display:block}
+
+    /* ── HERO ── */
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1920&auto=format&fit=crop&q=80') center/cover no-repeat}
+    .hero-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,36,56,.94) 0%,rgba(26,58,92,.82) 55%,rgba(13,36,56,.68) 100%)}
+    .hero-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+    .particle{position:absolute;border-radius:50%;background:var(--gold);opacity:.55;animation:pfloat 7s ease-in-out infinite}
+    @keyframes pfloat{0%,100%{transform:translateY(0) rotate(0deg);opacity:.55}50%{transform:translateY(-28px) rotate(180deg);opacity:1}}
+    .hero-body{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:120px 5% 80px}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,184,0,.13);border:1px solid rgba(255,184,0,.4);color:var(--gold);padding:7px 18px;border-radius:25px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:22px}
+    .hero h1{font-family:'Raleway',sans-serif;font-size:clamp(36px,6.5vw,76px);font-weight:900;color:#fff;line-height:1.12;margin-bottom:14px}
+    .hero h1 .hi{background:var(--grd-sol);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-sub{font-size:clamp(15px,2.2vw,20px);color:rgba(255,255,255,.78);max-width:580px;margin-bottom:32px}
+    .hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:40px}
+    .h-stat{text-align:center}
+    .h-stat .n{display:block;font-size:30px;font-weight:800;color:var(--gold);line-height:1;font-family:'Raleway',sans-serif}
+    .h-stat .l{display:block;font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+    .btn-p,.btn-s{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:50px;font-size:15px;font-weight:600;font-family:'Poppins',sans-serif;cursor:pointer;border:none;transition:var(--t)}
+    .btn-p{background:var(--grd-sol);color:#fff;box-shadow:0 8px 25px rgba(255,107,0,.42)}
+    .btn-p:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(255,107,0,.55)}
+    .btn-s{background:rgba(255,255,255,.1);color:#fff;border:2px solid rgba(255,255,255,.28);backdrop-filter:blur(8px)}
+    .btn-s:hover{background:rgba(255,255,255,.18);border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+    .scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;animation:bounce2 2s infinite}
+    .scroll-hint a{color:rgba(255,255,255,.55);font-size:22px}
+    @keyframes bounce2{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(9px)}}
+
+    /* ── GENERIC SECTION ── */
+    section{padding:80px 5%}
+    .cont{max-width:1200px;margin:0 auto}
+    .stag{display:inline-block;background:rgba(255,107,0,.1);color:var(--sun);padding:5px 16px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
+    .stit{font-family:'Raleway',sans-serif;font-size:clamp(26px,4vw,44px);font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:14px}
+    .stit .o{color:var(--sun)}
+    .ssub{font-size:15px;color:var(--muted);max-width:600px;margin-bottom:44px}
+    .tc{text-align:center}.tc .ssub{margin:0 auto 44px}
+
+    /* ── ABOUT ── */
+    .about{background:var(--bg)}
+    .ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .ab-img{position:relative}
+    .ab-img img{width:100%;height:440px;object-fit:cover;border-radius:var(--r);box-shadow:var(--shd)}
+    .ab-bdg{position:absolute;bottom:-18px;right:-18px;background:var(--grd-sol);color:#fff;padding:18px 22px;border-radius:14px;box-shadow:var(--shd);text-align:center}
+    .ab-bdg strong{font-size:26px;display:block;font-weight:900;font-family:'Raleway',sans-serif}
+    .ab-bdg small{font-size:11px;opacity:.9}
+    .ab-content p{color:var(--muted);margin-bottom:18px;line-height:1.85;font-size:15px}
+    .ab-feats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+    .ab-feat{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--navy)}
+    .ab-feat i{color:var(--sun);font-size:14px}
+
+    /* ── SOLUTIONS ── */
+    .solutions{background:#fff}
+    .sol-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+    .sol-card{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shd);height:300px;cursor:pointer;transition:var(--t)}
+    .sol-card:hover{transform:translateY(-8px);box-shadow:var(--shd-h)}
+    .sol-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+    .sol-card:hover img{transform:scale(1.08)}
+    .sol-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,36,56,.95) 0%,rgba(13,36,56,.35) 60%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
+    .sol-ico{width:44px;height:44px;background:var(--grd-sol);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;margin-bottom:10px}
+    .sol-ov h3{color:#fff;font-size:17px;font-weight:700;margin-bottom:4px}
+    .sol-ov p{color:rgba(255,255,255,.72);font-size:12.5px;line-height:1.5}
+
+    /* ── WHY CHOOSE US ── */
+    .why{background:var(--grd-nav);position:relative;overflow:hidden}
+    .why::before{content:'';position:absolute;top:-40%;right:-8%;width:550px;height:550px;background:radial-gradient(circle,rgba(255,107,0,.1) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+    .why .stit{color:#fff}
+    .why .ssub{color:rgba(255,255,255,.62)}
+    .why .stag{background:rgba(255,184,0,.13);color:var(--gold)}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .why-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:30px;transition:var(--t);backdrop-filter:blur(8px)}
+    .why-card:hover{background:rgba(255,107,0,.1);border-color:rgba(255,107,0,.3);transform:translateY(-4px)}
+    .why-num{font-size:44px;font-weight:900;color:rgba(255,184,0,.18);line-height:1;font-family:'Raleway',sans-serif}
+    .why-ico{width:52px;height:52px;background:var(--grd-sol);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;margin:8px 0 14px;box-shadow:0 6px 18px rgba(255,107,0,.3)}
+    .why-card h3{color:#fff;font-size:17px;font-weight:700;margin-bottom:8px}
+    .why-card p{color:rgba(255,255,255,.62);font-size:13.5px;line-height:1.72}
+
+    /* ── INDUSTRIES ── */
+    .industries{background:var(--bg)}
+    .ind-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+    .ind-card{background:#fff;border-radius:var(--r);padding:28px 18px;text-align:center;box-shadow:var(--shd);transition:var(--t);border-bottom:3px solid transparent}
+    .ind-card:hover{transform:translateY(-6px);border-bottom-color:var(--sun);box-shadow:var(--shd-h)}
+    .ind-ico{font-size:36px;margin-bottom:14px}
+    .ind-card h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px}
+    .ind-card p{font-size:12.5px;color:var(--muted);line-height:1.5}
+
+    /* ── SUBSIDIES ── */
+    .subsidies{background:#fff}
+    .sub-banner{background:linear-gradient(135deg,#FFF8F0,#FFF3E0);border:2px solid rgba(255,107,0,.2);border-radius:var(--r);padding:22px 26px;margin-bottom:36px;display:flex;gap:14px;align-items:flex-start}
+    .sub-banner i{font-size:28px;color:var(--sun);flex-shrink:0;margin-top:2px}
+    .sub-banner p{font-size:14.5px;color:var(--txt);line-height:1.75}
+    .sub-banner strong{color:var(--sun)}
+    .sub-tabs{display:flex;gap:8px;margin-bottom:30px;flex-wrap:wrap}
+    .stab{padding:9px 22px;border-radius:25px;font-size:13.5px;font-weight:600;cursor:pointer;transition:var(--t);border:2px solid rgba(26,58,92,.2);background:transparent;color:var(--navy);font-family:'Poppins',sans-serif}
+    .stab.active{background:var(--grd-sol);color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(255,107,0,.3)}
+    .scontent{display:none}
+    .scontent.active{display:block}
+    .slab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .slab-card{background:#fff;border:2px solid rgba(26,58,92,.1);border-radius:var(--r);padding:26px;transition:var(--t);position:relative;overflow:hidden}
+    .slab-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grd-sol)}
+    .slab-card:hover{border-color:var(--sun);transform:translateY(-4px);box-shadow:var(--shd)}
+    .slab-range{font-size:13px;color:var(--muted);font-weight:500;margin-bottom:6px}
+    .slab-amt{font-size:30px;font-weight:800;color:var(--sun);font-family:'Raleway',sans-serif;margin-bottom:3px}
+    .slab-per{font-size:12px;color:var(--muted);margin-bottom:10px}
+    .slab-tot{font-size:13.5px;font-weight:700;color:var(--navy);background:rgba(26,58,92,.07);padding:7px 12px;border-radius:8px;display:inline-block}
+    .sub-note{background:var(--grd-nav);color:#fff;padding:18px 22px;border-radius:12px;margin-top:22px;font-size:14px;font-style:italic;display:flex;align-items:center;gap:12px}
+    .sub-note i{color:var(--gold);font-size:18px;flex-shrink:0}
+
+    /* ── TESTIMONIALS ── */
+    .testimonials{background:var(--bg)}
+    .g-badge{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid rgba(0,0,0,.1);padding:8px 18px;border-radius:25px;box-shadow:var(--shd);margin-bottom:14px}
+    .g-ico{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#4285F4,#34A853,#FBBC05,#EA4335);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px}
+    .g-badge span{font-size:12.5px;font-weight:600;color:var(--navy)}
+    .rating-row{display:flex;align-items:center;gap:16px;margin-bottom:44px}
+    .big-r{font-size:62px;font-weight:900;color:var(--navy);font-family:'Raleway',sans-serif;line-height:1}
+    .r-info .stars{color:#FBBC05;font-size:22px}
+    .r-info .cnt{font-size:13px;color:var(--muted)}
+    .r-info a{font-size:12.5px;color:var(--sun);font-weight:600}
+    .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .rev-card{background:#fff;border-radius:var(--r);padding:26px;box-shadow:var(--shd);transition:var(--t);border:1px solid rgba(0,0,0,.06)}
+    .rev-card:hover{transform:translateY(-4px);box-shadow:var(--shd-h)}
+    .rev-hd{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;color:#fff;flex-shrink:0}
+    .rev-meta h4{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:1px}
+    .rev-date{font-size:11.5px;color:var(--muted)}
+    .rev-stars{color:#FBBC05;font-size:13px;margin-bottom:10px}
+    .rev-txt{font-size:13.5px;color:var(--muted);line-height:1.72}
+    .g-brand{display:flex;justify-content:flex-end;margin-top:14px;font-size:13px;font-weight:700;letter-spacing:.5px}
+    .g-brand .b{color:#4285F4}.g-brand .r{color:#EA4335}.g-brand .y{color:#FBBC05}.g-brand .g{color:#34A853}
+
+    /* ── CONTACT ── */
+    .contact{background:#fff}
+    .ct-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:44px;align-items:start}
+    .ct-form-wrap{background:var(--bg);border-radius:20px;padding:38px}
+    .form-ttl{font-size:21px;font-weight:700;color:var(--navy);margin-bottom:6px}
+    .form-sub{font-size:13.5px;color:var(--muted);margin-bottom:26px}
+    .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .fg{margin-bottom:16px}
+    .fg label{display:block;font-size:12.5px;font-weight:600;color:var(--navy);margin-bottom:5px}
+    .fg label .req{color:var(--sun)}
+    .fg input,.fg select,.fg textarea{width:100%;padding:11px 15px;border:2px solid rgba(26,58,92,.12);border-radius:10px;font-size:13.5px;font-family:'Poppins',sans-serif;color:var(--txt);background:#fff;transition:var(--t);outline:none}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--sun);box-shadow:0 0 0 4px rgba(255,107,0,.1)}
+    .fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231A3A5C' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+    .btn-sub{width:100%;padding:15px;background:var(--grd-sol);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:'Poppins',sans-serif;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 6px 20px rgba(255,107,0,.35);margin-top:6px}
+    .btn-sub:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,107,0,.48)}
+    .form-fn{text-align:center;margin-top:10px;font-size:12px;color:var(--muted)}
+    .form-fn i{color:var(--sun)}
+    .social-share{margin-top:22px;padding-top:22px;border-top:1px solid rgba(26,58,92,.1)}
+    .social-share p{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:10px}
+    .share-btns{display:flex;gap:8px;flex-wrap:wrap}
+    .sh{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;font-size:12.5px;font-weight:600;transition:var(--t);color:#fff;border:none;cursor:pointer}
+    .sh:hover{opacity:.85;transform:translateY(-2px)}
+    .sh-wa{background:#25D366}.sh-fb{background:#1877F2}.sh-tw{background:#1DA1F2}.sh-li{background:#0A66C2}
+    .ct-info{display:flex;flex-direction:column;gap:20px}
+    .ct-card{background:#fff;border:1px solid rgba(26,58,92,.1);border-radius:var(--r);padding:22px;box-shadow:var(--shd)}
+    .ct-card h3{font-size:15.5px;font-weight:700;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:9px}
+    .ct-card h3 i{color:var(--sun)}
+    .ct-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:13.5px}
+    .ct-item i{color:var(--sun);margin-top:2px;flex-shrink:0}
+    .ct-item a{color:var(--txt);transition:color .2s}
+    .ct-item a:hover{color:var(--sun)}
+    .map-wrap{border-radius:12px;overflow:hidden;box-shadow:var(--shd);height:238px}
+    .map-wrap iframe{width:100%;height:100%;border:none}
+
+    /* ── FOOTER ── */
+    footer{background:var(--grd-nav);color:rgba(255,255,255,.78);padding:60px 5% 28px}
+    .ft-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:38px}
+    .ft-brand .logo{margin-bottom:0}
+    .ft-brand p{font-size:13.5px;line-height:1.8;margin:14px 0 18px;color:rgba(255,255,255,.58)}
+    .ft-soc{display:flex;gap:10px}
+    .ft-soc a{width:38px;height:38px;background:rgba(255,255,255,.1);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;transition:var(--t)}
+    .ft-soc a:hover{background:var(--sun);transform:translateY(-3px)}
+    .ft-col h4{color:#fff;font-size:14.5px;font-weight:700;margin-bottom:18px;padding-bottom:9px;position:relative}
+    .ft-col h4::after{content:'';position:absolute;bottom:0;left:0;width:28px;height:2px;background:var(--sun);border-radius:2px}
+    .ft-col ul{list-style:none}
+    .ft-col ul li{margin-bottom:9px}
+    .ft-col ul li a{color:rgba(255,255,255,.58);font-size:13.5px;display:flex;align-items:center;gap:7px;transition:color .2s}
+    .ft-col ul li a:hover{color:var(--gold)}
+    .ft-col ul li a i{font-size:9px;color:var(--sun)}
+    .ft-bot{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12.5px;color:rgba(255,255,255,.42)}
+    .ft-bot a{color:var(--gold)}
+
+    /* ── FLOATING ELEMENTS ── */
+    .wa-float{position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 24px rgba(37,211,102,.5);transition:var(--t);animation:wapulse 2.5s infinite}
+    .wa-float:hover{transform:scale(1.12);animation:none}
+    @keyframes wapulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+    .btt{position:fixed;bottom:98px;right:28px;z-index:999;background:var(--navy);color:#fff;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:var(--shd);transition:var(--t);opacity:0;pointer-events:none}
+    .btt.vis{opacity:1;pointer-events:all}
+    .btt:hover{background:var(--sun);transform:translateY(-3px)}
+
+    /* ── MODAL ── */
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+    .modal-ov.on{display:flex}
+    .modal{background:#fff;border-radius:20px;padding:44px 40px;max-width:420px;width:90%;text-align:center;box-shadow:0 30px 60px rgba(0,0,0,.3);animation:mIn .4s cubic-bezier(.175,.885,.32,1.275)}
+    @keyframes mIn{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+    .m-ico{width:76px;height:76px;background:linear-gradient(135deg,#4CAF50,#2E7D32);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff;margin:0 auto 22px;box-shadow:0 8px 20px rgba(76,175,80,.4)}
+    .modal h3{font-size:21px;font-weight:800;color:var(--navy);margin-bottom:10px}
+    .modal p{font-size:14px;color:var(--muted);margin-bottom:22px;line-height:1.72}
+    .m-close{background:var(--grd-sol);color:#fff;border:none;padding:12px 30px;border-radius:25px;font-size:14.5px;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;transition:var(--t)}
+    .m-close:hover{opacity:.85;transform:translateY(-2px)}
+
+    /* ── SCROLL ANIM ── */
+    .fi{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+    .fi.vis{opacity:1;transform:translateY(0)}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1100px){
+      .why-grid{grid-template-columns:repeat(2,1fr)}
+      .ind-grid{grid-template-columns:repeat(3,1fr)}
+      .ft-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:900px){
+      .ab-grid{grid-template-columns:1fr}
+      .ab-bdg{bottom:10px;right:10px}
+      .sol-grid{grid-template-columns:repeat(2,1fr)}
+      .rev-grid{grid-template-columns:repeat(2,1fr)}
+      .ct-grid{grid-template-columns:1fr}
+      .slab-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:768px){
+      section{padding:60px 5%}
+      .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(13,36,56,.98);flex-direction:column;padding:16px;gap:4px;border-top:1px solid rgba(255,107,0,.2)}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:11px 14px;width:100%;text-align:center}
+      .hamburger{display:flex}
+      .hero h1{font-size:32px}
+      .hero-btns{flex-direction:column}
+      .why-grid{grid-template-columns:1fr}
+      .ind-grid{grid-template-columns:repeat(2,1fr)}
+      .rev-grid{grid-template-columns:1fr}
+      .slab-grid{grid-template-columns:1fr}
+      .ft-grid{grid-template-columns:1fr}
+      .ft-bot{flex-direction:column;text-align:center}
+    }
+    @media(max-width:500px){
+      .sol-grid{grid-template-columns:1fr}
+      .ct-form-wrap{padding:22px}
+      .frow{grid-template-columns:1fr}
+      .ind-grid{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════ NAVBAR ════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="logo">
+      <div class="logo-mark">AE</div>
+      <div class="logo-words">
+        <span>Adyuraa Energy</span>
+        <span>Solar Solutions</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#subsidies">Subsidies</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact" class="nav-cta">Free Quote ☀️</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-body">
+    <div class="badge"><i class="fas fa-sun"></i> Nagpur's Trusted Solar Partner</div>
+    <h1>Stop Overpaying<br>for <span class="hi">Electricity</span></h1>
+    <p class="hero-sub">Switch to Adyuraa Energy – Smart &amp; reliable solar solutions for your home &amp; business in Nagpur</p>
+    <div class="hero-stats">
+      <!-- <div class="h-stat"><span class="n">500+</span><span class="l">Installations</span></div> -->
+      <div class="h-stat"><span class="n">₹78K</span><span class="l">Max Subsidy</span></div>
+      <div class="h-stat"><span class="n">25 yr</span><span class="l">Panel Warranty</span></div>
+      <div class="h-stat"><span class="n">95%</span><span class="l">Bill Savings</span></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-p"><i class="fas fa-solar-panel"></i> Get Free Consultation</a>
+      <a href="tel:+919699677885" class="btn-s"><i class="fas fa-phone"></i> Call: +91-96996 77885</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><a href="#about"><i class="fas fa-chevron-down"></i></a></div>
+</section>
+
+<!-- ════════════════ ABOUT ════════════════ -->
+<section class="about" id="about">
+  <div class="cont">
+    <div class="ab-grid">
+      <div class="ab-img fi">
+        <div style="position:relative;width:100%;height:440px;border-radius:var(--r);overflow:hidden;box-shadow:var(--shd);">
+          <img
+            id="about-img"
+            src="https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?w=800&auto=format&fit=crop&q=85"
+            alt="Adyuraa Energy rooftop solar installation Nagpur"
+            style="width:100%;height:100%;object-fit:cover;display:block;"
+            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&auto=format&fit=crop&q=85'"
+            loading="eager"
+          >
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(13,36,56,0.72) 0%,transparent 60%);padding:20px 24px;">
+            <p style="color:var(--gold);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Adyuraa Energy</p>
+            <p style="width:50%; color:rgba(255,255,255,0.88);font-size:14px;font-weight:500;">Rooftop Solar Installation · Nagpur, Maharashtra</p>
+          </div>
+        </div>
+        <div class="ab-bdg"><strong>100%</strong><small>Clean Energy</small></div>
+      </div>
+      <div class="fi d2">
+        <span class="stag">About Us</span>
+        <h2 class="stit">Nagpur's Rising <span class="o">Solar Capital</span></h2>
+        <p>Nagpur — no longer known only as The Orange City of India. It is rapidly emerging as a key hub for solar energy, thanks to its abundant sunlight and rising demand for sustainable power solutions.</p>
+        <p><strong style="color:var(--navy)">Adyuraa Energy</strong> is at the forefront of this transition, delivering reliable and future-ready solar solutions across residential, commercial, and industrial sectors. With a strong focus on quality, efficiency, and customer satisfaction, we empower clients to harness the full potential of solar energy.</p>
+        <p>As one of Nagpur's most trusted solar partners, we provide high-performance, affordable, and customized solutions that help you reduce costs, achieve energy independence, and contribute to a greener tomorrow.</p>
+        <div class="ab-feats">
+          <div class="ab-feat"><i class="fas fa-check-circle"></i> ISO Certified</div>
+          <div class="ab-feat"><i class="fas fa-check-circle"></i> 25-Year Warranty</div>
+          <div class="ab-feat"><i class="fas fa-check-circle"></i> Subsidy Assistance</div>
+          <div class="ab-feat"><i class="fas fa-check-circle"></i> After-Sales Support</div>
+          <div class="ab-feat"><i class="fas fa-check-circle"></i> EMI Available</div>
+          <div class="ab-feat"><i class="fas fa-check-circle"></i> Zero Maintenance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ SOLUTIONS ════════════════ -->
+<section class="solutions" id="solutions">
+  <div class="cont">
+    <div class="tc fi">
+      <span class="stag">What We Offer</span>
+      <h2 class="stit">Solar Solutions for <span class="o">Every Need</span></h2>
+      <p class="ssub">End-to-end solar installations tailored to your property type, energy usage, and budget — from 1 kW homes to 500 kW industrial plants.</p>
+    </div>
+    <div class="sol-grid">
+      <div class="sol-card fi d1">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80" alt="Residential solar panel installation" loading="lazy">
+        <div class="sol-ov">
+          <div class="sol-ico"><i class="fas fa-home"></i></div>
+          <h3>Residential</h3>
+          <p>Smart solar for homes – reduce bills by up to 90% with rooftop systems from 1 kW onwards</p>
+        </div>
+      </div>
+      <div class="sol-card fi d2">
+        <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=600&auto=format&fit=crop&q=80" alt="Commercial building solar installation" loading="lazy">
+        <div class="sol-ov">
+          <div class="sol-ico"><i class="fas fa-building"></i></div>
+          <h3>Commercial</h3>
+          <p>Power your business sustainably – cut overhead, boost ESG credentials and earn strong ROI</p>
+        </div>
+      </div>
+      <div class="sol-card fi d3">
+        <img src="https://images.unsplash.com/photo-1548337138-e87d889cc369?w=600&auto=format&fit=crop&q=80" alt="Industrial solar farm installation" loading="lazy">
+        <div class="sol-ov">
+          <div class="sol-ico"><i class="fas fa-industry"></i></div>
+          <h3>Industrial</h3>
+          <p>Large-scale solar plants for factories and warehouses – maximum energy independence</p>
+        </div>
+      </div>
+      <div class="sol-card fi d4">
+        <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=600&auto=format&fit=crop&q=80" alt="Housing society and RWA solar" loading="lazy">
+        <div class="sol-ov">
+          <div class="sol-ico"><i class="fas fa-city"></i></div>
+          <h3>GHS / RWA</h3>
+          <p>Power common areas for housing societies – claim up to ₹90 lakh government subsidy</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ WHY CHOOSE US ════════════════ -->
+<section class="why" id="why">
+  <div class="cont">
+    <div class="fi">
+      <span class="stag">Why Adyuraa</span>
+      <h2 class="stit">Why Choose Adyuraa Energy?</h2>
+      <p class="ssub">In this evolving landscape, choosing the right solar partner makes all the difference — and Adyuraa Energy stands out as a trusted name.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fi d1">
+        <div class="why-num">01</div>
+        <div class="why-ico"><i class="fas fa-drafting-compass"></i></div>
+        <h3>Customized Solar Solutions</h3>
+        <p>Tailored systems for residential, commercial, and industrial needs — designed around your energy usage, space, and budget for maximum efficiency.</p>
+      </div>
+      <div class="why-card fi d2">
+        <div class="why-num">02</div>
+        <div class="why-ico"><i class="fas fa-microchip"></i></div>
+        <h3>Superior Quality &amp; Technology</h3>
+        <p>High-efficiency panels and premium components ensuring maximum performance, durability, and long-term reliability for higher energy generation.</p>
+      </div>
+      <div class="why-card fi d3">
+        <div class="why-num">03</div>
+        <div class="why-ico"><i class="fas fa-project-diagram"></i></div>
+        <h3>End-to-End Expertise</h3>
+        <p>From consultation and design to installation and maintenance — complete solar solutions ensuring a seamless, hassle-free experience every step of the way.</p>
+      </div>
+      <div class="why-card fi d1">
+        <div class="why-num">04</div>
+        <div class="why-ico"><i class="fas fa-chart-line"></i></div>
+        <h3>Maximum Savings &amp; ROI</h3>
+        <p>Systems designed to significantly reduce electricity costs and deliver strong long-term returns on investment — your money working harder for you.</p>
+      </div>
+      <div class="why-card fi d2">
+        <div class="why-num">05</div>
+        <div class="why-ico"><i class="fas fa-handshake"></i></div>
+        <h3>Customer-First Approach</h3>
+        <p>Strong commitment to transparency, timely execution, and dependable after-sales support — building lasting relationships with every client.</p>
+      </div>
+      <div class="why-card fi d3">
+        <div class="why-num">06</div>
+        <div class="why-ico"><i class="fas fa-leaf"></i></div>
+        <h3>Commitment to Greener Future</h3>
+        <p>Dedicated to promoting sustainable energy solutions, helping you reduce your carbon footprint and contribute to a cleaner, greener tomorrow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ INDUSTRIES ════════════════ -->
+<section class="industries" id="industries">
+  <div class="cont">
+    <div class="tc fi">
+      <span class="stag">Industries We Serve</span>
+      <h2 class="stit">Industries Benefiting from <span class="o">Renewable Energy</span></h2>
+      <p class="ssub">Adyuraa Energy delivers customized solar installations tailored to the unique energy needs of each industry — helping businesses achieve efficiency and independence.</p>
+    </div>
+    <div class="ind-grid">
+      <div class="ind-card fi d1"><div class="ind-ico">🏭</div><h3>Manufacturing</h3><p>Cut energy costs by 40–60% with industrial-scale solar setups</p></div>
+      <div class="ind-card fi d2"><div class="ind-ico">🏨</div><h3>Hospitality</h3><p>Hotels &amp; resorts powering sustainable guest experiences</p></div>
+      <div class="ind-card fi d3"><div class="ind-ico">🎓</div><h3>Education</h3><p>Schools &amp; colleges going green while reducing operational costs</p></div>
+      <div class="ind-card fi d4"><div class="ind-ico">🏥</div><h3>Healthcare</h3><p>Uninterrupted solar power for hospitals and clinics</p></div>
+      <div class="ind-card fi d5"><div class="ind-ico">🏪</div><h3>Retail &amp; Malls</h3><p>Powering large commercial spaces efficiently with rooftop solar</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ SUBSIDIES ════════════════ -->
+<section class="subsidies" id="subsidies">
+  <div class="cont">
+    <div class="fi">
+      <span class="stag">Government Benefits</span>
+      <h2 class="stit">PM Surya Ghar <span class="o">Subsidy Scheme</span></h2>
+      <p class="ssub">Direct financial support from the Government of India — significantly reducing your solar installation cost.</p>
+    </div>
+    <div class="sub-banner fi">
+      <i class="fas fa-info-circle"></i>
+      <p>Under <strong>PM Surya Ghar Yojana</strong>, residential homeowners and housing societies can avail substantial subsidies on rooftop solar. <strong>Adyuraa Energy handles your entire subsidy application end-to-end</strong> — completely hassle-free.</p>
+    </div>
+    <div class="sub-tabs fi">
+      <button class="stab active" onclick="switchTab('res',this)">🏠 Residential</button>
+      <button class="stab" onclick="switchTab('soc',this)">🏢 Housing Society / RWA</button>
+    </div>
+    <div class="scontent active" id="tab-res">
+      <div class="slab-grid">
+        <div class="slab-card fi d1">
+          <div class="slab-range">Up to 2 kW System</div>
+          <div class="slab-amt">₹30,000</div>
+          <div class="slab-per">per kilowatt</div>
+          <div class="slab-tot">✔ Total up to ₹60,000</div>
+        </div>
+        <div class="slab-card fi d2">
+          <div class="slab-range">2 kW to 3 kW System</div>
+          <div class="slab-amt">₹18,000</div>
+          <div class="slab-per">per kW (additional capacity)</div>
+          <div class="slab-tot">✔ Total up to ₹78,000</div>
+        </div>
+        <div class="slab-card fi d3">
+          <div class="slab-range">Above 3 kW System</div>
+          <div class="slab-amt">₹78,000</div>
+          <div class="slab-per">maximum subsidy cap</div>
+          <div class="slab-tot">✔ Maximum Subsidy Capped</div>
+        </div>
+      </div>
+      <div class="sub-note fi"><i class="fas fa-quote-left"></i><span>Adyuraa Energy guides you through the complete PM Surya Ghar subsidy application and disbursement — zero paperwork stress for you!</span></div>
+    </div>
+    <div class="scontent" id="tab-soc">
+      <div class="slab-grid">
+        <div class="slab-card fi d1">
+          <div class="slab-range">Subsidy Rate</div>
+          <div class="slab-amt">₹18,000</div>
+          <div class="slab-per">per kilowatt</div>
+          <div class="slab-tot">✔ For Common Area Usage</div>
+        </div>
+        <div class="slab-card fi d2">
+          <div class="slab-range">Maximum Capacity</div>
+          <div class="slab-amt">500 kW</div>
+          <div class="slab-per">per housing society</div>
+          <div class="slab-tot">✔ Lifts, Lighting, Pumps, EV</div>
+        </div>
+        <div class="slab-card fi d3">
+          <div class="slab-range">Total Subsidy Cap</div>
+          <div class="slab-amt">₹90 Lakh</div>
+          <div class="slab-per">for large systems</div>
+          <div class="slab-tot">✔ Massive Society Savings</div>
+        </div>
+      </div>
+      <div class="sub-note fi"><i class="fas fa-quote-left"></i><span>Adyuraa Energy helps housing societies plan, install, and claim maximum subsidy with complete end-to-end support.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ TESTIMONIALS ════════════════ -->
+<section class="testimonials" id="testimonials">
+  <div class="cont">
+    <div class="fi">
+      <div class="g-badge"><div class="g-ico">G</div><span>Google Reviews — Verified Customers</span></div>
+      <h2 class="stit">What Our Customers <span class="o">Say</span></h2>
+      <div class="rating-row">
+        <div class="big-r">4.9</div>
+        <div class="r-info">
+          <div class="stars">★★★★★</div>
+          <div class="cnt">Based on 50+ Google Reviews · Nagpur</div>
+          <a href="https://g.page/r/adyuraaenergy/review" target="_blank">Leave a Review →</a>
+        </div>
+      </div>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-card fi d1">
+        <div class="rev-hd">
+          <div class="av" style="background:linear-gradient(135deg,#FF6B00,#FFB800)">R</div>
+          <div class="rev-meta"><h4>Rajesh Sharma</h4><div class="rev-date">March 2026 · Nagpur</div></div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-txt">Excellent service! The team was professional and completed the installation in just 2 days. My electricity bill dropped from ₹4,800 to under ₹400 per month. Highly recommend Adyuraa!</p>
+        <div class="g-brand"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="b">g</span><span class="g">l</span><span class="r">e</span></div>
+      </div>
+      <div class="rev-card fi d2">
+        <div class="rev-hd">
+          <div class="av" style="background:linear-gradient(135deg,#1A3A5C,#3A6B9E)">P</div>
+          <div class="rev-meta"><h4>Priya Deshmukh</h4><div class="rev-date">February 2026 · Nagpur</div></div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-txt">Adyuraa helped us claim ₹78,000 PM Surya Ghar subsidy without any hassle! The 5 kW system has been running flawlessly. Best solar company in Nagpur — no doubt!</p>
+        <div class="g-brand"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="b">g</span><span class="g">l</span><span class="r">e</span></div>
+      </div>
+      <div class="rev-card fi d3">
+        <div class="rev-hd">
+          <div class="av" style="background:linear-gradient(135deg,#2E7D32,#43A047)">S</div>
+          <div class="rev-meta"><h4>Suresh Agarwal</h4><div class="rev-date">January 2026 · Nagpur</div></div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-txt">Installed 25 kW solar for my factory. The ROI calculation was spot on — we save over ₹1.2 lakh every month on electricity. Truly a game changer for our business!</p>
+        <div class="g-brand"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="b">g</span><span class="g">l</span><span class="r">e</span></div>
+      </div>
+      <div class="rev-card fi d1">
+        <div class="rev-hd">
+          <div class="av" style="background:linear-gradient(135deg,#7B1FA2,#AB47BC)">N</div>
+          <div class="rev-meta"><h4>Neha Kulkarni</h4><div class="rev-date">December 2024 · Nagpur</div></div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-txt">Our housing society got a 50 kW system installed. Adyuraa handled everything from design to subsidy claim. Common area electricity cost reduced by 70%. Every RWA should do this!</p>
+        <div class="g-brand"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="b">g</span><span class="g">l</span><span class="r">e</span></div>
+      </div>
+      <div class="rev-card fi d2">
+        <div class="rev-hd">
+          <div class="av" style="background:linear-gradient(135deg,#C62828,#EF5350)">A</div>
+          <div class="rev-meta"><h4>Amit Thakur</h4><div class="rev-date">November 2024 · Nagpur</div></div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-txt">Very transparent pricing, zero hidden charges. The team explained everything clearly before installation. After-sales support is exceptional — they responded within hours when I had a query.</p>
+        <div class="g-brand"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="b">g</span><span class="g">l</span><span class="r">e</span></div>
+      </div>
+      <div class="rev-card fi d3">
+        <div class="rev-hd">
+          <div class="av" style="background:linear-gradient(135deg,#00695C,#00897B)">V</div>
+          <div class="rev-meta"><h4>Vandana Mehta</h4><div class="rev-date">October 2024 · Nagpur</div></div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-txt">I was skeptical at first but Adyuraa's team was patient and professional throughout. 3 kW system installed for my home. Within 6 months the savings are very clear. Excellent quality!</p>
+        <div class="g-brand"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="b">g</span><span class="g">l</span><span class="r">e</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CONTACT ════════════════ -->
+<section class="contact" id="contact">
+  <div class="cont">
+    <div class="tc fi">
+      <span class="stag">Get In Touch</span>
+      <h2 class="stit">Start Your Solar <span class="o">Journey Today</span></h2>
+      <p class="ssub">Fill in your details and our solar experts will reach out with a free customised quote — usually within a few hours.</p>
+    </div>
+    <div class="ct-grid">
+
+      <!-- FORM -->
+      <div class="ct-form-wrap fi">
+        <div class="form-ttl">Solar Enquiry Form</div>
+        <div class="form-sub">Get a free consultation &amp; customised solar quote</div>
+        <form id="enquiryForm" onsubmit="handleSubmit(event)" novalidate>
+          <div class="frow">
+            <div class="fg">
+              <label>First Name <span class="req">*</span></label>
+              <input type="text" id="fn" placeholder="First name" required>
+            </div>
+            <div class="fg">
+              <label>Last Name <span class="req">*</span></label>
+              <input type="text" id="ln" placeholder="Last name" required>
+            </div>
+          </div>
+          <div class="frow">
+            <div class="fg">
+              <label>Mobile Number <span class="req">*</span></label>
+              <input type="tel" id="mob" placeholder="+91 XXXXX XXXXX" maxlength="10" required>
+            </div>
+            <div class="fg">
+              <label>Email Address</label>
+              <input type="email" id="em" placeholder="your@email.com">
+            </div>
+          </div>
+          <div class="fg">
+            <label>Address <span class="req">*</span></label>
+            <input type="text" id="addr" placeholder="House/Flat No., Street, Area" required>
+          </div>
+          <div class="frow">
+            <div class="fg">
+              <label>District <span class="req">*</span></label>
+              <input type="text" id="dist" placeholder="e.g. Nagpur" required>
+            </div>
+            <div class="fg">
+              <label>State <span class="req">*</span></label>
+              <input type="text" id="st" placeholder="e.g. Maharashtra" required>
+            </div>
+          </div>
+          <div class="frow">
+            <div class="fg">
+              <label>Pin Code <span class="req">*</span></label>
+              <input type="text" id="pin" placeholder="6-digit PIN" maxlength="6" required>
+            </div>
+            <div class="fg">
+              <label>Type of Property</label>
+              <select id="prop">
+                <option value="">-- Select Property Type --</option>
+                <option value="Residential">🏠 Residential</option>
+                <option value="Commercial">🏢 Commercial</option>
+                <option value="Industrial">🏭 Industrial</option>
+                <option value="Residential Welfare Association">🏙️ Residential Welfare Association</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Google Maps Location URL</label>
+            <input type="url" id="maps" placeholder="https://maps.google.com/...">
+          </div>
+          <button type="submit" class="btn-sub">
+            <i class="fas fa-paper-plane"></i> Submit Enquiry &nbsp;<i class="fab fa-whatsapp"></i>
+          </button>
+          <p class="form-fn"><i class="fas fa-lock"></i> Enquiry is sent to our experts via WhatsApp &amp; Email instantly</p>
+        </form>
+
+        <!-- SOCIAL SHARE -->
+        <div class="social-share">
+          <p>📢 Share Adyuraa Energy with your network:</p>
+          <div class="share-btns">
+            <a class="sh sh-wa" href="https://wa.me/?text=Check%20out%20Adyuraa%20Energy%20%E2%80%94%20Nagpur%27s%20trusted%20solar%20installer!%20Get%20up%20to%20%E2%82%B978%2C000%20government%20subsidy.%20Free%20consultation%3A%20%2B91-84088%2077885%20%F0%9F%8C%9E" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a class="sh sh-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://adyuraaenergy.com&quote=Switch+to+solar+with+Adyuraa+Energy+Nagpur!" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <!-- <a class="sh sh-tw" href="https://twitter.com/intent/tweet?text=Save%20up%20to%2090%25%20on%20electricity%20bills%20with%20Adyuraa%20Energy%20%E2%80%94%20Nagpur%27s%20top%20solar%20installer!%20%23SolarEnergy%20%23Nagpur%20%23PMSuryaGhar&url=https://adyuraaenergy.com" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> Twitter</a> -->
+            <!-- <a class="sh sh-li" href="https://www.linkedin.com/shareArticle?mini=true&url=https://adyuraaenergy.com&title=Adyuraa+Energy+Solar+Solutions+Nagpur&summary=Reliable+solar+for+residential%2C+commercial+%26+industrial+sectors." target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i> LinkedIn</a> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div class="ct-info fi d2">
+        <div class="ct-card">
+          <h3><i class="fas fa-phone-alt"></i> Call / WhatsApp Us</h3>
+          <!-- <div class="ct-item"><i class="fas fa-mobile-alt"></i><div><a href="tel:+919699677885">+91-96996 77885</a><br><a href="tel:+919699677885">+91-9699677885 </a></div></div> -->
+          <div class="ct-item"><i class="fas fa-envelope"></i><a href="mailto:sales@adyuraaenergy.com">sales@adyuraaenergy.com</a></div>
+          <div class="ct-item"><i class="fab fa-whatsapp" style="color:#25D366"></i><a href="https://wa.me/919699677885?text=Hello%2C%20I%27m%20interested%20in%20solar%20solutions%20from%20Adyuraa%20Energy." target="_blank">Chat on WhatsApp</a></div>
+          <div class="ct-item"><i class="fas fa-clock"></i><span>Mon – Sat: 9:00 AM – 7:00 PM</span></div>
+        </div>
+        <div class="ct-card">
+          <h3><i class="fas fa-map-marker-alt"></i> Head Office</h3>
+          <div class="ct-item"><i class="fas fa-building"></i><div>70, Kotwal Nagar,<br>Ranapratapnagar P.O.,<br><strong>Nagpur – 440022</strong></div></div>
+        </div>
+        <div class="ct-card" style="padding:0;overflow:hidden;">
+          <div class="map-wrap">
+            <!-- <iframe
+              src="https://maps.google.com/maps?q=Kotwal+Nagar+Ranapratapnagar+Nagpur+440022&output=embed&z=15"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Adyuraa Energy Office – Nagpur">
+            </iframe> -->
+            <iframe
+              src="https://maps.google.com/maps?q=21.112444,79.060504&output=embed&z=15&markers=21.112444,79.060504"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Adyuraa Energy Office – Nagpur">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <a href="#home" class="logo">
+        <div class="logo-mark">AE</div>
+        <div class="logo-words"><span>Adyuraa Energy</span><span>Solar Solutions</span></div>
+      </a>
+      <p>Nagpur's most trusted solar solutions provider — empowering homes and businesses with clean, reliable, and cost-effective solar energy. Committed to a greener tomorrow.</p>
+      <div class="ft-soc">
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/919699677885" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <!-- <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a> -->
+        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="#solutions"><i class="fas fa-chevron-right"></i> Solutions</a></li>
+        <li><a href="#subsidies"><i class="fas fa-chevron-right"></i> Subsidies</a></li>
+        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Our Solutions</h4>
+      <ul>
+        <li><a href="#solutions"><i class="fas fa-chevron-right"></i> Residential Solar</a></li>
+        <li><a href="#solutions"><i class="fas fa-chevron-right"></i> Commercial Solar</a></li>
+        <li><a href="#solutions"><i class="fas fa-chevron-right"></i> Industrial Solar</a></li>
+        <li><a href="#solutions"><i class="fas fa-chevron-right"></i> GHS / RWA Solar</a></li>
+        <li><a href="#subsidies"><i class="fas fa-chevron-right"></i> PM Surya Ghar</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Get In Touch</h4>
+      <ul>
+        <!-- <li><a href="tel:+919699677885"><i class="fas fa-phone"></i> +91-96996 77885</a></li> -->
+        <li><a href="tel:+919699677885"><i class="fas fa-phone"></i> +91-9699677885</a></li>
+       <li><a href="tel:+919699677885"><i class="fas fa-phone"></i> +91-8408877885</a></li>
+        <li><a href="mailto:sales@adyuraaenergy.com"><i class="fas fa-envelope"></i> sales@adyuraaenergy.com</a></li>
+        <li><a href="#contact"><i class="fas fa-map-marker-alt"></i> Nagpur, Maharashtra 440022</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2026 Adyuraa Energy. All rights reserved.</span>
+    <span>Powered by ☀️ Clean Energy | Nagpur, India</span>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/919699677885?text=Hello%2C%20I%20am%20interested%20in%20solar%20solutions%20from%20Adyuraa%20Energy.%20Please%20share%20more%20details." class="wa-float" target="_blank" rel="noopener" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<!-- BACK TO TOP -->
+<a href="#home" class="btt" id="btt" title="Back to top"><i class="fas fa-chevron-up"></i></a>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-ov" id="modal">
+  <div class="modal">
+    <div class="m-ico"><i class="fas fa-check"></i></div>
+    <h3>Enquiry Submitted! 🎉</h3>
+    <p>Thank you! Your enquiry has been sent to our solar experts via <strong>WhatsApp</strong> and <strong>Email</strong>. We'll contact you within a few hours with a free customised quote.</p>
+    <button class="m-close" onclick="closeModal()">Great, Thank You!</button>
+  </div>
+</div>
+
+<script>
+  /* ── NAVBAR SCROLL ── */
+  const nb = document.getElementById('navbar');
+  const btt = document.getElementById('btt');
+  window.addEventListener('scroll', () => {
+    nb.classList.toggle('scrolled', window.scrollY > 80);
+    btt.classList.toggle('vis', window.scrollY > 400);
+  });
+
+  /* ── MOBILE MENU ── */
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'))
+  );
+
+  /* ── PARTICLES ── */
+  (function(){
+    const c = document.getElementById('particles');
+    for(let i=0;i<22;i++){
+      const p=document.createElement('div');
+      p.className='particle';
+      Object.assign(p.style,{
+        left:Math.random()*100+'%', top:Math.random()*100+'%',
+        width:(3+Math.random()*4)+'px', height:(3+Math.random()*4)+'px',
+        animationDelay:Math.random()*7+'s',
+        animationDuration:(4+Math.random()*5)+'s'
+      });
+      c.appendChild(p);
+    }
+  })();
+
+  /* ── SCROLL ANIMATIONS ── */
+  const obs = new IntersectionObserver(entries =>
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); }),
+    {threshold:0.1, rootMargin:'0px 0px -40px 0px'}
+  );
+  document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+  /* ── SUBSIDY TABS ── */
+  function switchTab(id, btn) {
+    document.querySelectorAll('.stab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.scontent').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+id).classList.add('active');
+  }
+
+  /* ── FORM SUBMIT ── */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const v = id => document.getElementById(id).value.trim();
+    const fn=v('fn'),ln=v('ln'),mob=v('mob'),em=v('em')||'Not provided',
+          addr=v('addr'),dist=v('dist'),st=v('st'),pin=v('pin'),
+          prop=v('prop')||'Not specified',maps=v('maps')||'Not provided';
+
+    if(!fn||!ln||!mob||!addr||!dist||!st||!pin){
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    const waMsg =
+`🌞 *New Solar Enquiry — Adyuraa Energy*
+
+👤 *Name:* ${fn} ${ln}
+📱 *Mobile:* ${mob}
+📧 *Email:* ${em}
+🏠 *Address:* ${addr}, ${dist}, ${st} – ${pin}
+🏗️ *Property Type:* ${prop}
+🗺️ *Maps URL:* ${maps}
+
+_Submitted via Adyuraa Energy Website_`;
+
+    const mailSubj = `Solar Enquiry from ${fn} ${ln} — Adyuraa Energy`;
+    const mailBody =
+`New Solar Enquiry via Website
+
+Name: ${fn} ${ln}
+Mobile: ${mob}
+Email: ${em}
+Address: ${addr}, ${dist}, ${st} – ${pin}
+Property Type: ${prop}
+Google Maps: ${maps}
+
+This enquiry was submitted via the Adyuraa Energy website.`;
+
+    /* Open WhatsApp */
+    window.open(`https://wa.me/919699677885?text=${encodeURIComponent(waMsg)}`, '_blank');
+
+    /* Open email client after 1.2 s */
+    setTimeout(() => {
+      window.location.href =
+        `mailto:sales@adyuraaenergy.com?subject=${encodeURIComponent(mailSubj)}&body=${encodeURIComponent(mailBody)}`;
+    }, 1200);
+
+    document.getElementById('modal').classList.add('on');
+    document.getElementById('enquiryForm').reset();
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('on');
+  }
+  document.getElementById('modal').addEventListener('click', function(e){
+    if(e.target===this) closeModal();
+  });
+
+  /* ── SMOOTH SCROLL OFFSET ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e){
+      const tgt = document.querySelector(this.getAttribute('href'));
+      if(tgt){ e.preventDefault(); window.scrollTo({top:tgt.offsetTop-76,behavior:'smooth'}); }
+    });
+  });
+</script>
+</body>
+</html>
