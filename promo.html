@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Adyuraa Energy | Festive Solar Offer</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --sun:#FF6B00;--sun-dk:#E55A00;
+      --navy:#1A3A5C;--navy-dk:#0D2438;
+      --gold:#FFB800;
+      --txt:#1A1A2E;--muted:#6B7280;
+      --bg:#F8FAFC;--white:#fff;
+      --grd-sol:linear-gradient(135deg,#FF6B00 0%,#FFB800 100%);
+      --grd-nav:linear-gradient(135deg,#1A3A5C 0%,#0D2438 100%);
+      --shd:0 10px 30px rgba(0,0,0,.10);
+      --shd-h:0 20px 50px rgba(0,0,0,.16);
+      --r:16px;--t:all .3s cubic-bezier(.4,0,.2,1);
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Poppins',sans-serif;color:var(--txt);line-height:1.6;overflow-x:hidden;background:var(--bg)}
+    img{display:block;max-width:100%}
+    a{text-decoration:none}
+
+    /* ── NAVBAR ── */
+    .navbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(13,36,56,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,107,0,.18);transition:var(--t)}
+    .navbar.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.3)}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:14px 5%;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo-mark{width:44px;height:44px;background:var(--grd-sol);border-radius:11px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff;box-shadow:0 4px 15px rgba(255,107,0,.4);flex-shrink:0}
+    .logo-words span:first-child{display:block;font-size:17px;font-weight:800;color:#fff;letter-spacing:.5px}
+    .logo-words span:last-child{display:block;font-size:9px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:500}
+    .nav-links{display:flex;list-style:none;gap:4px;align-items:center}
+    .nav-links a{color:rgba(255,255,255,.82);padding:8px 14px;border-radius:8px;font-size:14px;font-weight:500;transition:var(--t)}
+    .nav-links a:hover{color:var(--gold);background:rgba(255,184,0,.1)}
+    .nav-cta{background:var(--grd-sol)!important;color:#fff!important;padding:10px 22px!important;border-radius:25px!important;font-weight:600!important;box-shadow:0 4px 15px rgba(255,107,0,.4)}
+    .nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(255,107,0,.55)!important}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .hamburger span{width:25px;height:2px;background:#fff;border-radius:2px;transition:var(--t);display:block}
+    @media(max-width:768px){
+      .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(13,36,56,.98);flex-direction:column;padding:16px;gap:4px;border-top:1px solid rgba(255,107,0,.2)}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:11px 14px;width:100%;text-align:center}
+      .hamburger{display:flex}
+    }
+
+    /* ── HERO IMAGE + CTA STRIP ── */
+    .hero-img-wrap{margin-top:76px;line-height:0}
+    .hero-img-wrap img{width:100%;display:block}
+    .cta-strip{background:var(--grd-nav);padding:34px 5%;text-align:center}
+    .countdown{display:flex;gap:14px;justify-content:center;margin:0 0 26px;flex-wrap:wrap}
+    .cd-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:12px 16px;min-width:70px;text-align:center;backdrop-filter:blur(6px)}
+    .cd-box .num{display:block;font-family:'Raleway',sans-serif;font-size:26px;font-weight:800;color:var(--gold)}
+    .cd-box .lbl{display:block;font-size:10px;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+    .btn-p,.btn-s{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:50px;font-size:15px;font-weight:600;font-family:'Poppins',sans-serif;cursor:pointer;border:none;transition:var(--t)}
+    .btn-p{background:var(--grd-sol);color:#fff;box-shadow:0 8px 25px rgba(255,107,0,.42)}
+    .btn-p:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(255,107,0,.55)}
+    .btn-s{background:rgba(255,255,255,.1);color:#fff;border:2px solid rgba(255,255,255,.28);backdrop-filter:blur(8px)}
+    .btn-s:hover{background:rgba(255,255,255,.18);border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+
+    /* ── HIGHLIGHTS ── */
+    section{padding:64px 5%}
+    .cont{max-width:1000px;margin:0 auto}
+    .stit{font-family:'Raleway',sans-serif;font-size:clamp(24px,3.6vw,36px);font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:30px;text-align:center}
+    .stit .o{color:var(--sun)}
+    .hl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .hl-card{background:#fff;border:1px solid rgba(26,58,92,.1);border-radius:var(--r);padding:22px;display:flex;align-items:flex-start;gap:14px;box-shadow:var(--shd)}
+    .hl-ico{width:40px;height:40px;background:var(--grd-sol);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;flex-shrink:0}
+    .hl-card p{font-size:14.5px;font-weight:600;color:var(--navy)}
+
+    /* ── FORM ── */
+    .form-sec{background:#fff}
+    .ct-form-wrap{background:var(--bg);border-radius:20px;padding:38px;max-width:560px;margin:0 auto}
+    .form-ttl{font-size:21px;font-weight:700;color:var(--navy);margin-bottom:6px;text-align:center}
+    .form-sub{font-size:13.5px;color:var(--muted);margin-bottom:26px;text-align:center}
+    .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .fg{margin-bottom:16px}
+    .fg label{display:block;font-size:12.5px;font-weight:600;color:var(--navy);margin-bottom:5px}
+    .fg label .req{color:var(--sun)}
+    .fg input{width:100%;padding:11px 15px;border:2px solid rgba(26,58,92,.12);border-radius:10px;font-size:13.5px;font-family:'Poppins',sans-serif;color:var(--txt);background:#fff;transition:var(--t);outline:none}
+    .fg input:focus{border-color:var(--sun);box-shadow:0 0 0 4px rgba(255,107,0,.1)}
+    .btn-sub{width:100%;padding:15px;background:var(--grd-sol);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:'Poppins',sans-serif;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 6px 20px rgba(255,107,0,.35);margin-top:6px}
+    .btn-sub:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,107,0,.48)}
+    .form-fn{text-align:center;margin-top:10px;font-size:12px;color:var(--muted)}
+
+    footer{background:var(--grd-nav);color:rgba(255,255,255,.62);padding:26px 5%;text-align:center;font-size:12.5px}
+    footer a{color:var(--gold)}
+
+    .wa-float{position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 8px 24px rgba(37,211,102,.5);transition:var(--t);animation:wapulse 2.5s infinite}
+    .wa-float:hover{transform:scale(1.12);animation:none}
+    @keyframes wapulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+    @media(max-width:700px){
+      .hl-grid{grid-template-columns:1fr}
+      .frow{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="./adyuraa-energy.html#home" class="logo">
+      <div class="logo-mark">AE</div>
+      <div class="logo-words">
+        <span>Adyuraa Energy</span>
+        <span>Solar Solutions</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="./adyuraa-energy.html#home">Home</a></li>
+      <li><a href="./adyuraa-energy.html#solutions">Solutions</a></li>
+      <li><a href="./adyuraa-energy.html#subsidies">Subsidies</a></li>
+      <li><a href="./adyuraa-energy.html#testimonials">Testimonials</a></li>
+      <li><a href="./adyuraa-energy.html#contact" class="nav-cta">Get Free Consultation ☀️</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="hero-img-wrap">
+  <img src="promo.jpeg" alt="Adyuraa Energy — 5 Ka Dum Festive Solar Dhamaka. Free consultation within 24 hrs, easy finance, ₹5,000 gift voucher, free insurance for 5kW+ systems, up to ₹78,000 PM Surya Ghar subsidy. Offer valid 14th Sept 2026 to 20th Oct 2026.">
+</div>
+
+<div class="cta-strip">
+  <div class="countdown" id="countdown"></div>
+  <div class="hero-btns">
+    <a href="#enquire" class="btn-p"><i class="fas fa-gift"></i> Claim This Offer</a>
+    <a href="tel:+919699677885" class="btn-s"><i class="fas fa-phone"></i> Call: +91-96996 77885</a>
+    <a href="https://wa.me/919699677885?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%205%20Ka%20Dum%20festive%20solar%20offer%20from%20Adyuraa%20Energy%21" target="_blank" rel="noopener" class="btn-s"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+  </div>
+</div>
+
+<section>
+  <div class="cont">
+    <h2 class="stit">What's <span class="o">Included</span></h2>
+    <div class="hl-grid">
+      <div class="hl-card"><div class="hl-ico"><i class="fas fa-headset"></i></div><p>Free consultation within 24 hrs of enquiry</p></div>
+      <div class="hl-card"><div class="hl-ico"><i class="fas fa-hand-holding-usd"></i></div><p>Easy finance — flexible &amp; hassle-free</p></div>
+      <div class="hl-card"><div class="hl-ico"><i class="fas fa-gift"></i></div><p>₹5,000 gift voucher (Amazon or Flipkart) on successful installation</p></div>
+      <div class="hl-card"><div class="hl-ico"><i class="fas fa-shield-alt"></i></div><p>Free insurance for 5kW &amp; above systems, paid by us</p></div>
+      <div class="hl-card"><div class="hl-ico"><i class="fas fa-piggy-bank"></i></div><p>Up to ₹78,000 PM Surya Ghar subsidy</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="form-sec" id="enquire">
+  <div class="ct-form-wrap">
+    <div class="form-ttl">Claim The Offer</div>
+    <div class="form-sub">Share your details — our team will confirm eligibility and lock in the discount for you.</div>
+    <form id="promoForm" novalidate>
+      <div class="frow">
+        <div class="fg">
+          <label>Full Name <span class="req">*</span></label>
+          <input type="text" id="pfn" placeholder="Your name" required>
+        </div>
+        <div class="fg">
+          <label>Mobile Number <span class="req">*</span></label>
+          <input type="tel" id="pmob" placeholder="+91 XXXXX XXXXX" maxlength="10" required>
+        </div>
+      </div>
+      <div class="fg">
+        <label>City / Area <span class="req">*</span></label>
+        <input type="text" id="pcity" placeholder="e.g. Nagpur" required>
+      </div>
+      <button type="submit" class="btn-sub">
+        <i class="fas fa-paper-plane"></i> Claim My Discount &nbsp;<i class="fab fa-whatsapp"></i>
+      </button>
+      <p class="form-fn"><i class="fas fa-lock"></i> Sent straight to our team via WhatsApp</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Adyuraa Energy. Offer valid for a limited time, terms apply.</span>
+</footer>
+
+<a href="https://wa.me/919699677885?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20festive%20solar%20offer%20from%20Adyuraa%20Energy%21" target="_blank" rel="noopener" class="wa-float" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+(function () {
+  /* ── NAVBAR SCROLL + MOBILE MENU ── */
+  const nb = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nb.classList.toggle('scrolled', window.scrollY > 80);
+  });
+  window.toggleMenu = function () {
+    document.getElementById('navLinks').classList.toggle('open');
+  };
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'))
+  );
+
+  const target = new Date('2026-10-20T23:59:59');
+  const cdEl = document.getElementById('countdown');
+  const tick = () => {
+    const diff = target - new Date();
+    if (diff <= 0) { cdEl.innerHTML = '<div class="cd-box"><span class="num">–</span><span class="lbl">Offer ended</span></div>'; return; }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    cdEl.innerHTML = `
+      <div class="cd-box"><span class="num">${d}</span><span class="lbl">Days</span></div>
+      <div class="cd-box"><span class="num">${h}</span><span class="lbl">Hrs</span></div>
+      <div class="cd-box"><span class="num">${m}</span><span class="lbl">Mins</span></div>`;
+  };
+  tick();
+  setInterval(tick, 60000);
+
+  document.getElementById('promoForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const v = id => document.getElementById(id).value.trim();
+    const name = v('pfn'), mob = v('pmob'), city = v('pcity');
+    if (!name || !mob || !city) { alert('Please fill in all fields.'); return; }
+
+    const msg = `🎉 *5 Ka Dum Festive Solar Dhamaka — Adyuraa Energy*\n\n👤 *Name:* ${name}\n📱 *Mobile:* ${mob}\n📍 *City/Area:* ${city}\n🎁 *Offer:* Free Consultation + Easy Finance + ₹5,000 Gift Voucher + Free Insurance + Up to ₹78,000 Subsidy\n\n_Submitted via promo page_`;
+    window.open(`https://wa.me/919699677885?text=${encodeURIComponent(msg)}`, '_blank');
+  });
+})();
+</script>
+</body>
+</html>
