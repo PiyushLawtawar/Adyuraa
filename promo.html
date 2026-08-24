@@ -78,7 +78,10 @@
     /* ── FORM ── */
     .form-sec{background:#fff}
     .ct-form-wrap{background:var(--bg);border-radius:20px;padding:38px;max-width:560px;margin:0 auto}
-    .form-ttl{font-size:21px;font-weight:700;color:var(--navy);margin-bottom:6px;text-align:center}
+    .form-ttl-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+    .form-ttl{font-size:21px;font-weight:700;color:var(--navy);margin-bottom:0;text-align:center}
+    .form-hint{display:none;font-size:11.5px;font-weight:600;color:var(--sun);background:rgba(255,107,0,.1);border:1px solid rgba(255,107,0,.25);padding:4px 12px;border-radius:20px;white-space:nowrap}
+    .form-hint.show{display:inline-block}
     .form-sub{font-size:13.5px;color:var(--muted);margin-bottom:26px;text-align:center}
     .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     .fg{margin-bottom:16px}
@@ -86,8 +89,12 @@
     .fg label .req{color:var(--sun)}
     .fg input{width:100%;padding:11px 15px;border:2px solid rgba(26,58,92,.12);border-radius:10px;font-size:13.5px;font-family:'Poppins',sans-serif;color:var(--txt);background:#fff;transition:var(--t);outline:none}
     .fg input:focus{border-color:var(--sun);box-shadow:0 0 0 4px rgba(255,107,0,.1)}
+    .fg input.invalid{border-color:#e5484d}
+    .field-err{display:none;color:#e5484d;font-size:11.5px;font-weight:500;margin-top:5px}
+    .field-err.show{display:block}
     .btn-sub{width:100%;padding:15px;background:var(--grd-sol);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:'Poppins',sans-serif;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 6px 20px rgba(255,107,0,.35);margin-top:6px}
     .btn-sub:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,107,0,.48)}
+    .btn-sub:disabled{opacity:.5;cursor:not-allowed;box-shadow:none;transform:none}
     .form-fn{text-align:center;margin-top:10px;font-size:12px;color:var(--muted)}
 
     footer{background:var(--grd-nav);color:rgba(255,255,255,.62);padding:26px 5%;text-align:center;font-size:12.5px}
@@ -155,24 +162,30 @@
 
 <section class="form-sec" id="enquire">
   <div class="ct-form-wrap">
-    <div class="form-ttl">Claim The Offer</div>
+    <div class="form-ttl-row">
+      <div class="form-ttl">Claim The Offer</div>
+      <span class="form-hint" id="promoHint">Please fill in the details below</span>
+    </div>
     <div class="form-sub">Share your details — our team will confirm eligibility and lock in the discount for you.</div>
     <form id="promoForm" novalidate>
       <div class="frow">
         <div class="fg">
           <label>Full Name <span class="req">*</span></label>
           <input type="text" id="pfn" placeholder="Your name" required>
+          <span class="field-err" id="err-pfn"></span>
         </div>
         <div class="fg">
           <label>Mobile Number <span class="req">*</span></label>
-          <input type="tel" id="pmob" placeholder="+91 XXXXX XXXXX" maxlength="10" required>
+          <input type="tel" id="pmob" placeholder="+91 XXXXX XXXXX" maxlength="16" required>
+          <span class="field-err" id="err-pmob"></span>
         </div>
       </div>
       <div class="fg">
         <label>City / Area <span class="req">*</span></label>
         <input type="text" id="pcity" placeholder="e.g. Nagpur" required>
+        <span class="field-err" id="err-pcity"></span>
       </div>
-      <button type="submit" class="btn-sub">
+      <button type="submit" class="btn-sub" id="promoSubmit" disabled>
         <i class="fas fa-paper-plane"></i> Claim My Discount &nbsp;<i class="fab fa-whatsapp"></i>
       </button>
       <p class="form-fn"><i class="fas fa-lock"></i> Sent straight to our team via WhatsApp</p>
@@ -216,11 +229,67 @@
   tick();
   setInterval(tick, 60000);
 
+  /* ── FORM VALIDATION (inline errors + enable submit only once required fields are valid) ── */
+  const promoValid = (function () {
+    const fields = [
+      { id: 'pfn', required: true },
+      { id: 'pmob', required: true, format: v => v.replace(/\D/g, '').length >= 10, msg: 'Enter a 10-digit mobile number (you may include the +91 country code).' },
+      { id: 'pcity', required: true }
+    ];
+    const submitBtn = document.getElementById('promoSubmit');
+    const touched = new Set();
+
+    const check = f => {
+      const val = document.getElementById(f.id).value.trim();
+      if (!val) return f.required ? "This field can't be left empty." : '';
+      if (f.format && !f.format(val)) return f.msg;
+      return '';
+    };
+    const render = f => {
+      const input = document.getElementById(f.id);
+      const errEl = document.getElementById('err-' + f.id);
+      if (!touched.has(f.id)) return;
+      const msg = check(f);
+      errEl.textContent = msg;
+      errEl.classList.toggle('show', !!msg);
+      input.classList.toggle('invalid', !!msg);
+    };
+    const isFormValid = () => fields.every(f => !check(f));
+    const refresh = () => { submitBtn.disabled = !isFormValid(); };
+
+    fields.forEach(f => {
+      const input = document.getElementById(f.id);
+      input.addEventListener('blur', () => { touched.add(f.id); render(f); refresh(); });
+      input.addEventListener('input', () => { render(f); refresh(); });
+      input.addEventListener('change', () => { render(f); refresh(); });
+    });
+    refresh();
+
+    return () => {
+      fields.forEach(f => { touched.add(f.id); render(f); });
+      return isFormValid();
+    };
+  })();
+
+  /* ── EMPTY-FORM HINT ── */
+  (function () {
+    const form = document.getElementById('promoForm');
+    const hint = document.getElementById('promoHint');
+    const allInputs = () => Array.from(form.querySelectorAll('input, select, textarea'));
+    const isFormEmpty = () => allInputs().every(el => !el.value.trim());
+    const refreshHint = () => hint.classList.toggle('show', isFormEmpty());
+    allInputs().forEach(el => {
+      el.addEventListener('input', refreshHint);
+      el.addEventListener('change', refreshHint);
+    });
+    refreshHint();
+  })();
+
   document.getElementById('promoForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const v = id => document.getElementById(id).value.trim();
     const name = v('pfn'), mob = v('pmob'), city = v('pcity');
-    if (!name || !mob || !city) { alert('Please fill in all fields.'); return; }
+    if (!name || !mob || !city || !promoValid()) return;
 
     const msg = `🎉 *5 Ka Dum Festive Solar Dhamaka — Adyuraa Energy*\n\n👤 *Name:* ${name}\n📱 *Mobile:* ${mob}\n📍 *City/Area:* ${city}\n🎁 *Offer:* Free Consultation + Easy Finance + ₹5,000 Gift Voucher + Free Insurance + Up to ₹78,000 Subsidy\n\n_Submitted via promo page_`;
     window.open(`https://wa.me/919699677885?text=${encodeURIComponent(msg)}`, '_blank');

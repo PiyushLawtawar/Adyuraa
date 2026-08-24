@@ -181,7 +181,10 @@
     .contact{background:#fff}
     .ct-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:44px;align-items:start}
     .ct-form-wrap{background:var(--bg);border-radius:20px;padding:38px}
-    .form-ttl{font-size:21px;font-weight:700;color:var(--navy);margin-bottom:6px}
+    .form-ttl-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+    .form-ttl{font-size:21px;font-weight:700;color:var(--navy);margin-bottom:0}
+    .form-hint{display:none;font-size:11.5px;font-weight:600;color:var(--sun);background:rgba(255,107,0,.1);border:1px solid rgba(255,107,0,.25);padding:4px 12px;border-radius:20px;white-space:nowrap}
+    .form-hint.show{display:inline-block}
     .form-sub{font-size:13.5px;color:var(--muted);margin-bottom:26px}
     .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     .fg{margin-bottom:16px}
@@ -189,9 +192,13 @@
     .fg label .req{color:var(--sun)}
     .fg input,.fg select,.fg textarea{width:100%;padding:11px 15px;border:2px solid rgba(26,58,92,.12);border-radius:10px;font-size:13.5px;font-family:'Poppins',sans-serif;color:var(--txt);background:#fff;transition:var(--t);outline:none}
     .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--sun);box-shadow:0 0 0 4px rgba(255,107,0,.1)}
+    .fg input.invalid,.fg select.invalid{border-color:#e5484d}
+    .field-err{display:none;color:#e5484d;font-size:11.5px;font-weight:500;margin-top:5px}
+    .field-err.show{display:block}
     .fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231A3A5C' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
     .btn-sub{width:100%;padding:15px;background:var(--grd-sol);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:'Poppins',sans-serif;cursor:pointer;transition:var(--t);display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 6px 20px rgba(255,107,0,.35);margin-top:6px}
     .btn-sub:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,107,0,.48)}
+    .btn-sub:disabled{opacity:.5;cursor:not-allowed;box-shadow:none;transform:none}
     .form-fn{text-align:center;margin-top:10px;font-size:12px;color:var(--muted)}
     .form-fn i{color:var(--sun)}
     .social-share{margin-top:22px;padding-top:22px;border-top:1px solid rgba(26,58,92,.1)}
@@ -641,47 +648,58 @@
 
       <!-- FORM -->
       <div class="ct-form-wrap fi">
-        <div class="form-ttl">Solar Enquiry Form</div>
+        <div class="form-ttl-row">
+          <div class="form-ttl">Solar Enquiry Form</div>
+          <span class="form-hint" id="enquiryHint">Please fill in the details below</span>
+        </div>
         <div class="form-sub">Get a free consultation &amp; customised solar quote</div>
         <form id="enquiryForm" onsubmit="handleSubmit(event)" novalidate>
           <div class="frow">
             <div class="fg">
               <label>First Name <span class="req">*</span></label>
               <input type="text" id="fn" placeholder="First name" required>
+              <span class="field-err" id="err-fn"></span>
             </div>
             <div class="fg">
               <label>Last Name <span class="req">*</span></label>
               <input type="text" id="ln" placeholder="Last name" required>
+              <span class="field-err" id="err-ln"></span>
             </div>
           </div>
           <div class="frow">
             <div class="fg">
               <label>Mobile Number <span class="req">*</span></label>
-              <input type="tel" id="mob" placeholder="+91 XXXXX XXXXX" maxlength="10" required>
+              <input type="tel" id="mob" placeholder="+91 XXXXX XXXXX" maxlength="16" required>
+              <span class="field-err" id="err-mob"></span>
             </div>
             <div class="fg">
               <label>Email Address</label>
               <input type="email" id="em" placeholder="your@email.com">
+              <span class="field-err" id="err-em"></span>
             </div>
           </div>
           <div class="fg">
             <label>Address <span class="req">*</span></label>
             <input type="text" id="addr" placeholder="House/Flat No., Street, Area" required>
+            <span class="field-err" id="err-addr"></span>
           </div>
           <div class="frow">
             <div class="fg">
               <label>District <span class="req">*</span></label>
               <input type="text" id="dist" placeholder="e.g. Nagpur" required>
+              <span class="field-err" id="err-dist"></span>
             </div>
             <div class="fg">
               <label>State <span class="req">*</span></label>
               <input type="text" id="st" placeholder="e.g. Maharashtra" required>
+              <span class="field-err" id="err-st"></span>
             </div>
           </div>
           <div class="frow">
             <div class="fg">
               <label>Pin Code <span class="req">*</span></label>
               <input type="text" id="pin" placeholder="6-digit PIN" maxlength="6" required>
+              <span class="field-err" id="err-pin"></span>
             </div>
             <div class="fg">
               <label>Type of Property</label>
@@ -697,8 +715,9 @@
           <div class="fg">
             <label>Google Maps Location URL</label>
             <input type="url" id="maps" placeholder="https://maps.google.com/...">
+            <span class="field-err" id="err-maps"></span>
           </div>
-          <button type="submit" class="btn-sub">
+          <button type="submit" class="btn-sub" id="enquirySubmit" disabled>
             <i class="fas fa-paper-plane"></i> Submit Enquiry &nbsp;<i class="fab fa-whatsapp"></i>
           </button>
           <p class="form-fn"><i class="fas fa-lock"></i> Enquiry is sent to our experts via WhatsApp &amp; Email instantly</p>
@@ -868,6 +887,69 @@
     document.getElementById('tab-'+id).classList.add('active');
   }
 
+  /* ── FORM VALIDATION (inline errors + enable submit only once required fields are valid) ── */
+  const enquiryValid = (function () {
+    const digits = s => s.replace(/\D/g, '');
+    const fields = [
+      { id: 'fn', required: true },
+      { id: 'ln', required: true },
+      { id: 'mob', required: true, format: v => digits(v).length >= 10, msg: 'Enter a 10-digit mobile number (you may include the +91 country code).' },
+      { id: 'em', required: false, format: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), msg: 'Enter a valid email address.' },
+      { id: 'addr', required: true },
+      { id: 'dist', required: true },
+      { id: 'st', required: true },
+      { id: 'pin', required: true, format: v => digits(v).length === 6, msg: 'Enter a valid 6-digit PIN code.' },
+      { id: 'maps', required: false, format: v => /^https?:\/\//i.test(v), msg: 'Enter a valid URL starting with http:// or https://' }
+    ];
+    const submitBtn = document.getElementById('enquirySubmit');
+    const touched = new Set();
+
+    const check = f => {
+      const val = document.getElementById(f.id).value.trim();
+      if (!val) return f.required ? "This field can't be left empty." : '';
+      if (f.format && !f.format(val)) return f.msg;
+      return '';
+    };
+    const render = f => {
+      const input = document.getElementById(f.id);
+      const errEl = document.getElementById('err-' + f.id);
+      if (!touched.has(f.id)) return;
+      const msg = check(f);
+      errEl.textContent = msg;
+      errEl.classList.toggle('show', !!msg);
+      input.classList.toggle('invalid', !!msg);
+    };
+    const isFormValid = () => fields.every(f => !check(f));
+    const refresh = () => { submitBtn.disabled = !isFormValid(); };
+
+    fields.forEach(f => {
+      const input = document.getElementById(f.id);
+      input.addEventListener('blur', () => { touched.add(f.id); render(f); refresh(); });
+      input.addEventListener('input', () => { render(f); refresh(); });
+      input.addEventListener('change', () => { render(f); refresh(); });
+    });
+    refresh();
+
+    return () => {
+      fields.forEach(f => { touched.add(f.id); render(f); });
+      return isFormValid();
+    };
+  })();
+
+  /* ── EMPTY-FORM HINT ── */
+  (function () {
+    const form = document.getElementById('enquiryForm');
+    const hint = document.getElementById('enquiryHint');
+    const allInputs = () => Array.from(form.querySelectorAll('input, select, textarea'));
+    const isFormEmpty = () => allInputs().every(el => !el.value.trim());
+    const refreshHint = () => hint.classList.toggle('show', isFormEmpty());
+    allInputs().forEach(el => {
+      el.addEventListener('input', refreshHint);
+      el.addEventListener('change', refreshHint);
+    });
+    refreshHint();
+  })();
+
   /* ── FORM SUBMIT ── */
   function handleSubmit(e) {
     e.preventDefault();
@@ -876,10 +958,7 @@
           addr=v('addr'),dist=v('dist'),st=v('st'),pin=v('pin'),
           prop=v('prop')||'Not specified',maps=v('maps')||'Not provided';
 
-    if(!fn||!ln||!mob||!addr||!dist||!st||!pin){
-      alert('Please fill in all required fields.');
-      return;
-    }
+    if(!fn||!ln||!mob||!addr||!dist||!st||!pin||!enquiryValid()) return;
 
     const waMsg =
 `🌞 *New Solar Enquiry — Adyuraa Energy*
